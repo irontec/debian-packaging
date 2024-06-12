@@ -24,6 +24,7 @@ ONBUILD RUN apt-get update \
 
 # Create building workdir
 RUN mkdir -p /build/source
+ENV HOME=/build/source
 WORKDIR /build/source
 
 # Default entrypoint
