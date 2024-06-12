@@ -10,6 +10,9 @@ RUN apt-get update \
   && apt-get install --no-install-recommends -y gnupg wget fakeroot dpkg-dev build-essential debconf pbuilder aptitude \
   && apt-get clean
 
+# Add irontec repositories keys
+RUN wget http://packages.irontec.com/public.key -q -O /etc/apt/trusted.gpg.d/irontec-debian-repository.asc
+
 # Add support for custom sources
 ONBUILD COPY sources.lis[t] /etc/apt/sources.list.d/
 
