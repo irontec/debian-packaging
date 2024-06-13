@@ -21,9 +21,11 @@ WORKDIR /build/source
 # Add building directory safe for git
 RUN git config --system --add safe.directory /build/source
 
-
 # Add support for custom sources
-ONBUILD COPY sources.lis[t] /etc/apt/sources.list.d/
+ONBUILD ARG release
+ONBUILD COPY *sources.list /etc/apt/sources.list.d/
+ONBUILD COPY *apt /etc/apt/
+ONBUILD COPY *${release}/apt /etc/apt/
 
 # When this image is used on another build:
 ONBUILD COPY . debian
