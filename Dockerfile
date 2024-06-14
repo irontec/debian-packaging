@@ -15,6 +15,7 @@ RUN wget http://packages.irontec.com/public.key -q -O /etc/apt/trusted.gpg.d/iro
 
 # Create building directory
 RUN mkdir -p /build/source
+RUN chmod 777 -R /build/
 ENV HOME=/build/source
 WORKDIR /build/source
 
