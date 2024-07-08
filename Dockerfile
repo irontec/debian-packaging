@@ -3,6 +3,10 @@ FROM debian:${release}
 
 MAINTAINER Ivan Alonso <kaian@irontec.com>
 
+# Add support for custom sources in base image
+ARG release
+COPY *${release}/apt /etc/apt/
+
 # Image environment configuration
 ENV DEBIAN_FRONTEND=noninteractive
 
