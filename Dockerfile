@@ -1,5 +1,9 @@
-ARG release
-FROM debian:${release}
+# Use latest debian by default
+ARG distribution=debian
+ARG release=bookworm
+
+# Allow configuration of base image
+FROM ${distribution}:${release}
 
 MAINTAINER Ivan Alonso <kaian@irontec.com>
 
