@@ -15,7 +15,7 @@ COPY *${release}/apt /etc/apt/
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
-  && apt-get install --no-install-recommends -y git gnupg wget fakeroot dpkg-dev build-essential debconf pbuilder aptitude \
+  && apt-get install --no-install-recommends -y git gnupg wget fakeroot dpkg-dev build-essential debconf pbuilder aptitude ca-certificates \
   && apt-get clean
 
 # Add irontec repositories keys
