@@ -29,6 +29,8 @@ WORKDIR /build/source
 
 # Add building directory safe for git
 RUN git config --system --add safe.directory /build/source
+# Avoid HTTP/2 failures on git clones (bookworm git + github return 401 on POST)
+RUN git config --system http.version HTTP/1.1
 
 # Add support for custom sources
 ONBUILD ARG release
